@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-/////////////
-//import Files from 'react-files';
+import Files from 'react-files';
 import ModalLoadingAlert from '../ModalLoadingAlert';
 import PDFProvider from '../../lib/provider/pdfSplitProvider';
-////////////
-//import { saveSync } from 'save-file'
+import { saveSync } from 'save-file'
 
 class FilesDragDrop extends Component {
   state = {
@@ -83,9 +81,8 @@ class FilesDragDrop extends Component {
 			if (res && res.hasOwnProperty("pdfFile")) {
 				if (res.pdfFile) {
 					if (res.pdfNotMergedList.length !== this.state.files.length) {
-					////////
-						// const fileName = "output_merge_" + new Date().toISOString().replace(":","_").replace("T","_").replace("Z","") + ".pdf"
-						// saveSync(res.pdfFile, fileName)
+						const fileName = "output_merge_" + new Date().toISOString().replace(":","_").replace("T","_").replace("Z","") + ".pdf"
+						saveSync(res.pdfFile, fileName)
 					}
 
 					if (res.pdfNotMergedList.length > 0) {
@@ -144,7 +141,7 @@ class FilesDragDrop extends Component {
       <div className="files">
         <Grid container spacing={32} justify="center">
           <Grid item className={classes.dropFilesGridZone}>
-            {/* <Files
+            <Files
 			  			ref='files'
               className={classes.dropFilesZone}
               onChange={this.onFilesChange}
@@ -156,7 +153,7 @@ class FilesDragDrop extends Component {
               clickable
             >
               <div className={classes.dropFilesZoneDiv}>Drop files here or click to upload</div>
-            </Files> */}
+            </Files>
           </Grid>
         </Grid>
 

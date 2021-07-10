@@ -18,8 +18,7 @@ import styled from 'styled-components';
 import FilesDragDrop from './FilesDragDrop';
 import SplitFilesDragDrop from './splitFiles/SplitFilesDragDrop';
 import PdfToWord from './wordConversionFiles/PdfToWord';
-///////////////
-//const { PDFDocument } = require('pdf-lib');
+const { PDFDocument } = require('pdf-lib');
 var fs = require('fs');
 
 // const PDFMerger = require('pdf-merger-js');
