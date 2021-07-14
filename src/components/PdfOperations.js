@@ -18,6 +18,7 @@ import styled from 'styled-components';
 import FilesDragDrop from './FilesDragDrop';
 import SplitFilesDragDrop from './splitFiles/SplitFilesDragDrop';
 import PdfToWord from './wordConversionFiles/PdfToWord';
+
 const { PDFDocument } = require('pdf-lib');
 var fs = require('fs');
 
@@ -25,20 +26,22 @@ var fs = require('fs');
 
 
 const Styles = styled.div`
-  .navbar { background-color: #222; }
-  a, .navbar-nav, .navbar-light .nav-link {
-    color: #9FFFCB;
-    &:hover { color: white; }
+  .coming-soon {
+      font-family: Comic Sans MS;
+      font-weight: bold;
+      color: blue;
+      font-style: Italic;
   }
-  .navbar-brand {
-    font-size: 1.4em;
-    color: #9FFFCB;
-    &:hover { color: white; }
+
+  .pdf-file {
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    color: dark-grey;
+    font-style: Italic;
   }
-  .form-center {
-    position: absolute !important;
-    left: 25%;
-    right: 25%;
+
+  .card {
+      background-color: #E1F2F2;
   }
 `;
 
@@ -109,7 +112,7 @@ export default function PdfOperations() {
     const bull = <span className={classes.bullet}>•</span>;
     return (
         <Styles>
-            <Container fixed>Select the file type to perform operations</Container>
+            <Container fixed>Click on the link below to perform required operations</Container>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
@@ -117,15 +120,16 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" >
 
-                                    <CardContent>
+                                    <CardContent className='card'>
                                         <Typography
-                                            className={classes.title}
-                                            color="textSecondary"
+                                            component='h2'
+                                            className='pdf-file'
+                                            
                                             gutterBottom>
                                             Merge PDF
                                         </Typography>
                                         <Typography variant="body2" component="p">
-                                            Please enter pdf files sequentially to merge them.
+                                            Please enter pdf files sequentially to merge
                                             <br />
                                             <div>
                                                 <FilesDragDrop>
@@ -154,31 +158,39 @@ export default function PdfOperations() {
                             </TableCell>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => pdfToPowerpoint()} >
-                                    <a href='./Trial'>Link</a>
-                                    <CardContent>
-                                        <Typography
+                                    {/* <a href='./Trial'>Link</a> */}
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
                                             PDF to Powerpoint
-                                        </Typography>
-                                        <Typography variant="h5" component="h2">
+                                        </Typography> */}
+                                        <Typography variant="h5" component="h2" className='pdf-file'>
                                             pdf to powerpoint
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
                             </TableCell>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => rotateClockwisePdf()}>
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
                                             Rotate PDF Clockwise 90
+                                        </Typography> */}
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            Rotate pdf 90 degree clockwise
                                         </Typography>
-                                        <Typography variant="h5" component="h2">
-                                            rotate pdf clockwise 90
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
 
@@ -188,8 +200,8 @@ export default function PdfOperations() {
                         <TableRow>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => rotateAnticlockwisePdf()} >
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -197,6 +209,14 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             Rotate pdf anticlockwise 90
+                                        </Typography> */}
+
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            Rotate pdf 90 degree anticlockwise
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -204,8 +224,8 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => htmlToPdf()} >
 
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -213,6 +233,14 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             html to pdf
+                                        </Typography> */}
+
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                        html to pdf
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -220,8 +248,8 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => PdfToText()}>
 
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -229,14 +257,22 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             unlock pdf
+                                        </Typography> */}
+
+                                <Typography variant="h6" component="h2" className='pdf-file'>
+                                unlock pdf
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
                             </TableCell>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => protectPdf()}>
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -246,6 +282,14 @@ export default function PdfOperations() {
                                             Convert Pdf to word file
                                             <br/>
                                             <PdfToWord></PdfToWord>
+                                        </Typography> */}
+
+<Typography variant="h6" component="h2" className='pdf-file'>
+Pdf to Word
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -255,8 +299,8 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => organizePdf()} >
 
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -264,6 +308,14 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             organize pdf
+                                        </Typography> */}
+
+<Typography variant="h6" component="h2" className='pdf-file'>
+organize pdf
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -271,8 +323,8 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => repairPdf()}>
 
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -280,6 +332,13 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             repair pdf
+                                        </Typography> */}
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                        repair pdf
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -287,8 +346,8 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => signPdf()}>
 
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -296,6 +355,13 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             sign pdf
+                                        </Typography> */}
+                                          <Typography variant="h6" component="h2" className='pdf-file'>
+                                          sign pdf
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -303,8 +369,8 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => protectPdf()}>
 
-                                    <CardContent>
-                                        <Typography
+                                    <CardContent className='card'>
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
@@ -312,6 +378,14 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2">
                                             protect pdf
+                                        </Typography> */}
+
+<Typography variant="h6" component="h2" className='pdf-file'>
+Protect PDF
+                                        </Typography>
+                                        <Typography variant="h5" component="h2" className='coming-soon'>
+                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
+                                        Coming Soon!!!
                                         </Typography>
                                     </CardContent>
 

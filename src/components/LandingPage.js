@@ -31,13 +31,15 @@ const Styles = styled.div`
     left: 25%;
     right: 25%;
   }
+
+  .link-pdf {
+      font: bold;
+      color: blue;
+  }
 `;
 
 function routeToPdf () {
-    // const history = useHistory();
     console.log("Redirecting");
-    // <Redirect to="/pdfOperations" />
-    // history.push(`/pdfOperations`);
   }
 
 const useStyles = makeStyles({
@@ -60,27 +62,17 @@ const useStyles = makeStyles({
 export default function LandingPage() {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
-
-
-    // constructor(props) {
-    //     this.routeToPdf = this.routeToPdf.bind(this);
-    // }
-
-    // routeToPdf() {
-    //     console.log("........................");
-    // }
-  
     
     return (
         <Styles>
-            <Container fixed>Select the file type to perform operations</Container>
+            <Container fixed>Click on the link below inside the box to perform operations</Container>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" onClick={() => routeToPdf()}>
-                                    <a href='./pdfOperations'>Link</a>
+                                    <a href='./pdfOperations' className='link-pdf'>Link</a>
                                     <CardContent>
                                         <Typography
                                             className={classes.title}
@@ -98,14 +90,14 @@ export default function LandingPage() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined">
                                     <CardContent>
-                                        <Typography
+                                        {/* <Typography
                                             className={classes.title}
                                             color="textSecondary"
                                             gutterBottom>
                                             Word Document
-                                        </Typography>
+                                        </Typography> */}
                                         <Typography variant="h5" component="h2">
-                                        Click on the Link above to do Word Operations
+                                            Word Operations Coming Soon!!
                                         </Typography>                                      
                                     </CardContent>
                                 </Card>
