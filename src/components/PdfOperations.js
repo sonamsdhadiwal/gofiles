@@ -124,7 +124,7 @@ export default function PdfOperations() {
                                         <Typography
                                             component='h2'
                                             className='pdf-file'
-                                            
+
                                             gutterBottom>
                                             Merge PDF
                                         </Typography>
@@ -142,15 +142,19 @@ export default function PdfOperations() {
                             <TableCell>
                                 <Card className={classes.root} variant="outlined">
 
-                                    <CardContent>
+                                    <CardContent className='card'>
                                         <Typography
-                                            className={classes.title}
-                                            color="textSecondary"
+                                            component='h2'
+                                            className='pdf-file'
                                             gutterBottom>
                                             Split PDF
                                         </Typography>
-                                        <Typography variant="h5" component="h2">
-                                            <SplitFilesDragDrop></SplitFilesDragDrop>
+                                        <Typography variant="body2" component="p">
+                                            Please enter pdf file to split first page
+                                            <br />
+                                            <div>
+                                                <SplitFilesDragDrop></SplitFilesDragDrop>
+                                            </div>
                                         </Typography>
 
                                     </CardContent>
@@ -171,7 +175,7 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -190,7 +194,7 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
 
@@ -216,7 +220,7 @@ export default function PdfOperations() {
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -236,11 +240,11 @@ export default function PdfOperations() {
                                         </Typography> */}
 
                                         <Typography variant="h6" component="h2" className='pdf-file'>
-                                        html to pdf
+                                            html to pdf
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -259,12 +263,12 @@ export default function PdfOperations() {
                                             unlock pdf
                                         </Typography> */}
 
-                                <Typography variant="h6" component="h2" className='pdf-file'>
-                                unlock pdf
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            unlock pdf
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -284,12 +288,12 @@ export default function PdfOperations() {
                                             <PdfToWord></PdfToWord>
                                         </Typography> */}
 
-<Typography variant="h6" component="h2" className='pdf-file'>
-Pdf to Word
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            Pdf to Word
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -310,12 +314,12 @@ Pdf to Word
                                             organize pdf
                                         </Typography> */}
 
-<Typography variant="h6" component="h2" className='pdf-file'>
-organize pdf
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            organize pdf
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -334,11 +338,11 @@ organize pdf
                                             repair pdf
                                         </Typography> */}
                                         <Typography variant="h6" component="h2" className='pdf-file'>
-                                        repair pdf
+                                            repair pdf
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -356,12 +360,12 @@ organize pdf
                                         <Typography variant="h5" component="h2">
                                             sign pdf
                                         </Typography> */}
-                                          <Typography variant="h6" component="h2" className='pdf-file'>
-                                          sign pdf
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            sign pdf
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
                                 </Card>
@@ -380,12 +384,12 @@ organize pdf
                                             protect pdf
                                         </Typography> */}
 
-<Typography variant="h6" component="h2" className='pdf-file'>
-Protect PDF
+                                        <Typography variant="h6" component="h2" className='pdf-file'>
+                                            Protect PDF
                                         </Typography>
                                         <Typography variant="h5" component="h2" className='coming-soon'>
                                             {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                        Coming Soon!!!
+                                            Coming Soon!!!
                                         </Typography>
                                     </CardContent>
 

@@ -103,7 +103,7 @@ class FilesDragDrop extends Component {
 							}, () => { console.log("[LOG] Modal closed.") })
 						}
 						else {
-							tempMsg = "Merge totally successfull and downloaded!"
+							tempMsg = "Merge totally successfull. Please check download folder!!"
 							console.log("[LOG] " + tempMsg)
 							this.setState({
 								modalOpen: true,

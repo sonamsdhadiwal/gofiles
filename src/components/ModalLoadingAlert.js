@@ -8,45 +8,45 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Fade from '@material-ui/core/Fade';
 
 function rand() {
-  return Math.round(Math.random() * 20) - 10;
+	return Math.round(Math.random() * 20) - 10;
 }
 
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+	const top = 50 + rand();
+	const left = 50 + rand();
 
-  return {
+	return {
 
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
+		top: `${top}%`,
+		left: `${left}%`,
+		transform: `translate(-${top}%, -${left}%)`,
+	};
 }
 
 const styles = theme => ({
-  paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 50,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
-    outline: 'none',
-	textAlign: 'center'
-  },
+	paper: {
+		position: 'absolute',
+		width: theme.spacing.unit * 50,
+		backgroundColor: theme.palette.background.paper,
+		boxShadow: theme.shadows[5],
+		padding: theme.spacing.unit * 4,
+		outline: 'none',
+		textAlign: 'center'
+	},
 });
 
 class ModalLoadingAlert extends React.Component {
-	constructor (props) {
-        super(props)
-        this.state = {
-            open: props.isOpen ? props.isOpen : false,
+	constructor(props) {
+		super(props)
+		this.state = {
+			open: props.isOpen ? props.isOpen : false,
 			loading: props.isLoading,
-    		modalQuery: 'idle',
+			modalQuery: 'idle',
 			msg: props.msg,
 			respMsg: null
-        }
+		}
 		this.filesClearAndRemoveAll = props.clearModalStatus
-    }
+	}
 
 	componentWillReceiveProps(nextProps) {
 		// You don't have to do this check first, but it can help prevent an unneeded render
@@ -95,49 +95,49 @@ class ModalLoadingAlert extends React.Component {
 		const { classes } = this.props;
 
 		return (
-		  <div>
-		    <Modal
-			  disableBackdropClick
-			  disableEscapeKeyDown
-		      aria-labelledby="simple-modal-title"
-		      aria-describedby="simple-modal-description"
-		      open={this.state.open}
-		      onClose={this.handleClose}
-		    >
-			      	<div style={getModalStyle()} className={classes.paper}>
-				  	{
-						this.state.modalQuery !== 'progress' ? (
-							<Grid container spacing={32} justify="center">
-								<Grid item>
-									<Typography>{this.state.respMsg}</Typography>
+			<div>
+				<Modal
+					disableBackdropClick
+					disableEscapeKeyDown
+					aria-labelledby="simple-modal-title"
+					aria-describedby="simple-modal-description"
+					open={this.state.open}
+					onClose={this.handleClose}
+				>
+					<div style={getModalStyle()} className={classes.paper}>
+						{
+							this.state.modalQuery !== 'progress' ? (
+								<Grid container spacing={32} justify="center">
+									<Grid item>
+										<Typography>{this.state.respMsg}</Typography>
+									</Grid>
+									<Grid item>
+										<Button variant="contained" color="primary"
+											onClick={this.handleCloseAfterUpload}>
+											OK
+										</Button>
+									</Grid>
 								</Grid>
-						        <Grid item>
-									<Button variant="contained" color="primary"
-										onClick={this.handleCloseAfterUpload}>
-										New merge
-									</Button>
-						        </Grid>
-					        </Grid>
-						) : (
-						  	<div>
-								<Fade
-									in={this.state.modalQuery === 'progress'}
-									style={{
-									  transitionDelay: this.state.modalQuery === 'progress' ? '800ms' : '0ms',
-									}}
-									unmountOnExit
-								>
-									<CircularProgress />
-								</Fade>
-								<Typography>Merging...</Typography>
-							</div>
-						)
-					}
+							) : (
+								<div>
+									<Fade
+										in={this.state.modalQuery === 'progress'}
+										style={{
+											transitionDelay: this.state.modalQuery === 'progress' ? '800ms' : '0ms',
+										}}
+										unmountOnExit
+									>
+										<CircularProgress />
+									</Fade>
+									<Typography>Merging...</Typography>
+								</div>
+							)
+						}
 
-			        <ModalLoadingAlertWrapped />
-		      	</div>
-		    </Modal>
-		  </div>
+						<ModalLoadingAlertWrapped />
+					</div>
+				</Modal>
+			</div>
 		);
 	}
 }
