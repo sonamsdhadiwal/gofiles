@@ -1,7 +1,6 @@
 import { PDFDocumentFactory, PDFDocumentWriter } from 'pdf-lib';
 
-function splitBetweenPdf(pdfFileList) {
-	console.log("pdf file list", pdfFileList);
+function splitBetweenPdf(pdfFileList, value1, value2) {
 	let returnObj = { pdfFile: null, pdfNotMergedList: [] }
 	let splitFileObj = { pdfFile: null, pdfNotMergedList: [] }
 
@@ -45,7 +44,7 @@ function splitBetweenPdf(pdfFileList) {
 							iterPdfDoc.addPage(pdfPage);
 						})
 
-						for (let j = 0; j < 1; j++) {
+						for (let j = value1-1; j < value2-1; j++) {
 							splitPdfDoc.addPage(iterPdfDocPages[j]);
 						}
 						// No errors? Then add all pages to the final PDF

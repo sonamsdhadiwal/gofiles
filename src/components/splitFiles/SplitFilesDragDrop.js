@@ -6,9 +6,12 @@ import Files from 'react-files';
 import ModalLoadingAlert from '../ModalLoadingAlert';
 import PDFProvider from '../../lib/provider/pdfSplitProvider';
 import { saveSync } from 'save-file'
+import { Typography } from '@material-ui/core';
 
 class FilesDragDrop extends Component {
-	state = {
+	constructor() {
+		super();
+	this.state = {
 		files: [],
 		hasFiles: false,
 		modalOpen: false,
@@ -16,8 +19,14 @@ class FilesDragDrop extends Component {
 		modalMsg: {
 			err: null,
 			success: null
-		}
-	}
+		},
+		value1: '',
+		value2: '',
+	};
+	this.handleChange = this.handleChange.bind(this);
+	this.handleChangeToPage = this.handleChangeToPage.bind(this);
+	this.handleSubmit = this.handleSubmit.bind(this);
+}
 
 	onFilesChange = (files) => {
 		console.log("files", files);
@@ -27,10 +36,6 @@ class FilesDragDrop extends Component {
 		}, () => {
 			// console.log(this.state)
 		})
-
-		// this.setState({value: event.target.value}, function () {
-		//     console.log(this.state.value);
-		// });
 	}
 
 	onFilesError = (error, file) => {
@@ -75,7 +80,7 @@ class FilesDragDrop extends Component {
 			console.log("[LOG] Starting merge...")
 		})
 
-		PDFProvider.splitBetweenPdf(this.state.files)
+		PDFProvider.splitBetweenPdf(this.state.files,this.state.value1,this.state.value2)
 			.then((res) => {
 				console.log("result files", res);
 				if (res && res.hasOwnProperty("pdfFile")) {
@@ -134,9 +139,21 @@ class FilesDragDrop extends Component {
 			.finally(() => this.filesRemoveAll())
 	}
 
+	handleChange(event) {
+		this.setState({value1: event.target.value});
+	}
+
+	handleChangeToPage(event) {
+		this.setState({value2: event.target.value});
+	}
+
+	handleSubmit(event) {
+		event.preventDefault();
+	}
+
 	render() {
 		const { classes } = this.props;
-		console.log("props", this.props);
+		//console.log("props", this.props);
 		return (
 			<div className="files">
 				<Grid container spacing={10} justify="center" className={classes.gridContainer}>
@@ -185,6 +202,25 @@ class FilesDragDrop extends Component {
 								</div>
 							</Grid>
 					}
+				</Grid>
+
+				<Grid container spacing={16} justify="center">
+					<Grid item>
+						<Typography>
+							File range:
+						</Typography>
+						<form onSubmit={this.handleSubmit}>
+							<label>
+								From Page Number:
+								<input type="text" value={this.state.value1} onChange={this.handleChange}/>
+							</label>
+
+							<label>
+								To Page Number:
+								<input type="text" value={this.state.value2} onChange={this.handleChangeToPage}/>
+							</label>
+						</form>
+					</Grid>
 				</Grid>
 
 				<Grid container spacing={16} justify="center">
