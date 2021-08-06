@@ -27,10 +27,6 @@ class FilesDragDrop extends Component {
 		}, () => {
 			// console.log(this.state)
 		})
-
-		// this.setState({value: event.target.value}, function () {
-		//     console.log(this.state.value);
-		// });
 	}
 
 	onFilesError = (error, file) => {

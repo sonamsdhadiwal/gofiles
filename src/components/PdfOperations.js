@@ -17,7 +17,9 @@ import Typography from "@material-ui/core/Typography";
 import styled from 'styled-components';
 import FilesDragDrop from './FilesDragDrop';
 import SplitFilesDragDrop from './splitFiles/SplitFilesDragDrop';
+import FilesDragDropPdfText from './FilesDragDropPdfText';
 import PdfToWord from './wordConversionFiles/PdfToWord';
+import { TextareaAutosize } from '@material-ui/core';
 
 const { PDFDocument } = require('pdf-lib');
 var fs = require('fs');
@@ -240,11 +242,15 @@ export default function PdfOperations() {
                                         </Typography> */}
 
                                         <Typography variant="h6" component="h2" className='pdf-file'>
-                                            html to pdf
-                                        </Typography>
-                                        <Typography variant="h5" component="h2" className='coming-soon'>
-                                            {/* <img src='../images/coming4.jpeg' width='50px' height='50px'></img> */}
-                                            Coming Soon!!!
+                                            Text to pdf
+                                        </Typography>    
+                                        <Typography variant="body2" component="p">
+                                            Please enter text here to convert to pdf
+                                            <br />
+                                            <div>
+                                                <FilesDragDropPdfText>
+                                                </FilesDragDropPdfText>
+                                            </div>
                                         </Typography>
                                     </CardContent>
                                 </Card>
