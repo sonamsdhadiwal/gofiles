@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import logo1 from '../images/logo1.png';
 
 const Styles = styled.div`
-  .navbar { background-color: #222; }
+  .navbar { background-color: rgb(0,0,82); }
   a, .navbar-nav, .navbar-light .nav-link {
     color: #9FFFCB;
     &:hover { color: white; }
