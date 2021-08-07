@@ -27,12 +27,9 @@ class FilesDragDropPdfText extends Component {
 	}
 
 	generatePDF = () => {
-		console.log(".....");
 		var doc = new jsPDF("p", "px", "a4");
-		console.log("PDF", doc);
 		doc.html(document.querySelector("#content"), {
 			callback: function (pdf) {
-				console.log("pdf callback", pdf);
 				pdf.save("output.pdf");
 			}
 		})
