@@ -19,12 +19,15 @@ import FilesDragDrop from './FilesDragDrop';
 import SplitFilesDragDrop from './splitFiles/SplitFilesDragDrop';
 import FilesDragDropPdfText from './FilesDragDropPdfText';
 import PdfToWord from './wordConversionFiles/PdfToWord';
-import { TextareaAutosize } from '@material-ui/core';
+import { CardHeader, rgbToHex, TextareaAutosize } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import CardMedia from '@material-ui/core/CardMedia';
+import { red } from '@material-ui/core/colors';
 
 const { PDFDocument } = require('pdf-lib');
 var fs = require('fs');
 
-// const PDFMerger = require('pdf-merger-js');
 
 
 const Styles = styled.div`
@@ -44,6 +47,12 @@ const Styles = styled.div`
 
   .card {
       background-color: #E1F2F2;
+  }
+
+  .card-header {
+      background-color: #0000F1;
+      color: white;
+      font-size: 22px;
   }
 `;
 
@@ -65,7 +74,17 @@ const useStyles = makeStyles({
     },
     pos: {
         marginBottom: 12
-    }
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+    },
+    expandOpen: {
+        transform: 'rotate(180deg)',
+    },
+    avatar: {
+        backgroundColor: red[500],
+    },
 });
 
 function pdfToPowerpoint() {
@@ -114,46 +133,50 @@ export default function PdfOperations() {
     const bull = <span className={classes.bullet}>•</span>;
     return (
         <Styles>
-            <Container fixed>Click on the link below to perform required operations</Container>
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined" >
+                                    <CardHeader className='card-header'
+                                        avatar={
+                                            <Avatar aria-label="recipe" className={classes.avatar}>
+                                                M
+                                            </Avatar>
+                                        }
+
+                                        title="Merge PDF"
+                                        titleTypographyProps={{ variant: 'h5' }}
+                                    />
 
                                     <CardContent className='card'>
-                                        <Typography
-                                            component='h2'
-                                            className='pdf-file'
-
-                                            gutterBottom>
-                                            Merge PDF
-                                        </Typography>
                                         <Typography variant="body2" component="p">
-                                            Please enter pdf files sequentially to merge
-                                            <br />
                                             <div>
                                                 <FilesDragDrop>
                                                 </FilesDragDrop>
                                             </div>
                                         </Typography>
                                     </CardContent>
+
+
                                 </Card>
                             </TableCell>
                             <TableCell>
                                 <Card className={classes.root} variant="outlined">
 
+                                    <CardHeader className='card-header'
+                                        avatar={
+                                            <Avatar aria-label="recipe" className={classes.avatar}>
+                                                S
+                                            </Avatar>
+                                        }
+
+                                        title="Split PDF"
+                                        titleTypographyProps={{ variant: 'h5' }}
+                                    />
                                     <CardContent className='card'>
-                                        <Typography
-                                            component='h2'
-                                            className='pdf-file'
-                                            gutterBottom>
-                                            Split PDF
-                                        </Typography>
                                         <Typography variant="body2" component="p">
-                                            Please enter pdf file to split first page
-                                            <br />
                                             <div>
                                                 <SplitFilesDragDrop></SplitFilesDragDrop>
                                             </div>
@@ -243,7 +266,7 @@ export default function PdfOperations() {
 
                                         <Typography variant="h6" component="h2" className='pdf-file'>
                                             Text to pdf
-                                        </Typography>    
+                                        </Typography>
                                         <Typography variant="body2" component="p">
                                             Please enter text here to convert to pdf
                                             <br />

@@ -6,7 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 export default function RoutesPage() {
     return (
         <Switch>
-            <Route path='/' exact component={LandingPage}/>
+            <Route path='/' exact component={PdfOperations}/>
             <Route path='/pdfOperations' component={PdfOperations} />
            
         </Switch>

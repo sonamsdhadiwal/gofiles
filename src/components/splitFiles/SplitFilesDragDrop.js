@@ -207,17 +207,17 @@ class FilesDragDrop extends Component {
 				<Grid container spacing={16} justify="center">
 					<Grid item>
 						<Typography>
-							File range:
+							Page Number:
 						</Typography>
 						<form onSubmit={this.handleSubmit}>
 							<label>
-								From Page Number:
-								<input type="text" value={this.state.value1} onChange={this.handleChange}/>
+								From :  
+								<input type="text" value={this.state.value1} onChange={this.handleChange} className={classes.inputBox}/>
 							</label>
 
 							<label>
-								To Page Number:
-								<input type="text" value={this.state.value2} onChange={this.handleChangeToPage}/>
+								To :  
+								<input type="text" value={this.state.value2} onChange={this.handleChangeToPage} className={classes.inputBox}/>
 							</label>
 						</form>
 					</Grid>
@@ -281,6 +281,11 @@ const styles = theme => ({
 	splitButton: {
 		margin: '10px',
 		width: '166px'
+	},
+	inputBox: {
+		width: '40px',
+		bottom: '5px',
+		fontWeight: '400'
 	}
 });
 
