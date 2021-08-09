@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +8,7 @@ import ReactGA from 'react-ga';
 
 
 function initializeAnalytics() {
-  ReactGA.initialize('G-VS4V8BDLY6');
+  ReactGA.initialize('UA-204383892-1');
   ReactGA.pageview('/PdfOperations');
 }
 /**
