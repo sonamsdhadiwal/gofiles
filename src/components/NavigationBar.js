@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components';
-import logo1 from '../images/logo1.png';
+import logo3 from '../images/logo3.png';
 
 const Styles = styled.div`
   .navbar { background-color: rgb(0,0,82); }
@@ -20,7 +20,8 @@ const Styles = styled.div`
     top: 25%;
   }
   .logo {
-    width: 300px;
+    padding-left: 30px;
+    width: 140px;
     height: 80px;
   }
   .search-bar {
@@ -45,7 +46,7 @@ export const NavigationBar = () => (
       </Form> */}
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Item><img src={logo1} className="logo"/></Nav.Item>
+          <Nav.Item><img src={logo3} className="logo"/></Nav.Item>
           <Form className="form-center">
         <FormControl type="text" placeholder="Search" className="search-bar" />
       </Form>
